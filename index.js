@@ -27,7 +27,7 @@ let sumEl = document.getElementById("sum-el")
 
 function startGame () {
 
-    cardsEl.textContent = "Cards: " + firstCard + "|" + secondCard
+    cardsEl.textContent = "Cards: " + firstCard + " " + secondCard
     sumEl.textContent = "Sum: " + sum
 
     if (sum <= 20){
