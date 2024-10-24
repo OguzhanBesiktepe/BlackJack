@@ -16,6 +16,7 @@ function Entrance(){
 
 let firstCard = 10
 let secondCard = 11
+let cards = [firstCard, secondCard] 
 let sum = firstCard + secondCard
 let hasBlackJack = false
 let isAlive = true
@@ -23,11 +24,19 @@ let cardsEl = document.getElementById("cards-el")
 let messageEl = document.getElementById("message-el") //References HTML Document
 let sumEl = document.getElementById("sum-el")
 
+function startGame(){
+    renderGame()
+}
+
 //Logic of drawing cards
 
-function startGame () {
+function renderGame () {
 
-    cardsEl.textContent = "Cards: " + firstCard + " " + secondCard
+    cardsEl.textContent = "Cards: "
+    for (let i = 0; i < cards.length; i++){
+        cardsEl.textContent += cards[i] + " "
+    }
+
     sumEl.textContent = "Sum: " + sum
 
     if (sum <= 20){
@@ -42,4 +51,11 @@ function startGame () {
 
     messageEl.textContent = message //Stores content in message
 
+}
+
+function newCard (){
+    let card = 2
+    sum += card
+    cards.push(card)
+    renderGame()
 }
