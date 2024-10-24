@@ -12,10 +12,8 @@ function Entrance(){
     }
 }
 
-// Setting first and second card variables, w sum to see if user wins, loses, or needs to draw more cards
-
-let firstCard = 10
-let secondCard = 11
+let firstCard = getRandomCard()
+let secondCard = getRandomCard()
 let cards = [firstCard, secondCard] 
 let sum = firstCard + secondCard
 let hasBlackJack = false
@@ -23,6 +21,10 @@ let isAlive = true
 let cardsEl = document.getElementById("cards-el")
 let messageEl = document.getElementById("message-el") //References HTML Document
 let sumEl = document.getElementById("sum-el")
+
+function getRandomCard(){ //Allows User to Draw a Random Card between 1 - 13
+    return Math.floor(Math.random() * 13) + 1
+}
 
 function startGame(){
     renderGame()
@@ -54,7 +56,7 @@ function renderGame () {
 }
 
 function newCard (){
-    let card = 2
+    let card = getRandomCard()
     sum += card
     cards.push(card)
     renderGame()
