@@ -1,17 +1,3 @@
-let age = 21
-let message = ""
-
-//Checking if User is old enough to enter the Casino
-
-function Entrance(){
-    if(age < 21){
-        message = "You cannot enter the Casino, you don't meet the age requirement"
-    } else {
-        message = "Welcome into our Casino, hope you enjoy your stay!"
-        window.location.href = "index.html"
-    }
-}
-
 let cards = [] 
 let sum = 0
 let hasBlackJack = false
@@ -20,7 +6,16 @@ let cardsEl = document.getElementById("cards-el")
 let messageEl = document.getElementById("message-el") //References HTML Document
 let sumEl = document.getElementById("sum-el")
 
-console.log(cards)
+//Object listed as Player with a Name, and Money Amount
+
+let player = {
+    name:  "Player",
+    chips:  500,
+
+}
+
+let playerEl = document.getElementById("player-el")
+playerEl.textContent = player.name + ": $" + player.chips
 
 //Allows User to Draw a Random Card between 1 - 13
 
