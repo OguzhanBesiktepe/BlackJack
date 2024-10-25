@@ -22,7 +22,9 @@ let sumEl = document.getElementById("sum-el")
 
 console.log(cards)
 
-function getRandomCard(){ //Allows User to Draw a Random Card between 1 - 13
+//Allows User to Draw a Random Card between 1 - 13
+
+function getRandomCard(){
 
     let randomNumber = Math.floor(Math.random() * 13) + 1
     if (randomNumber > 10){
@@ -33,6 +35,8 @@ function getRandomCard(){ //Allows User to Draw a Random Card between 1 - 13
         return randomNumber
     }
 }
+
+//Staring Game Functionality
 
 function startGame(){
     isAlive = true
@@ -68,9 +72,13 @@ function renderGame () {
 
 }
 
+//Asking Dealer for new Card
+
 function newCard (){
+if (isAlive === true && hasBlackJack === false){
     let card = getRandomCard()
     sum += card
     cards.push(card)
     renderGame()
+    }
 }
