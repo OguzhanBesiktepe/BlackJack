@@ -12,21 +12,34 @@ function Entrance(){
     }
 }
 
-let firstCard = getRandomCard()
-let secondCard = getRandomCard()
-let cards = [firstCard, secondCard] 
-let sum = firstCard + secondCard
+let cards = [] 
+let sum = 0
 let hasBlackJack = false
-let isAlive = true
+let isAlive = false
 let cardsEl = document.getElementById("cards-el")
 let messageEl = document.getElementById("message-el") //References HTML Document
 let sumEl = document.getElementById("sum-el")
 
+console.log(cards)
+
 function getRandomCard(){ //Allows User to Draw a Random Card between 1 - 13
-    return Math.floor(Math.random() * 13) + 1
+
+    let randomNumber = Math.floor(Math.random() * 13) + 1
+    if (randomNumber > 10){
+        return 10
+    } else if (randomNumber === 1){
+        return 11
+    } else {
+        return randomNumber
+    }
 }
 
 function startGame(){
+    isAlive = true
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    cards = [firstCard, secondCard]
+    sum = firstCard + secondCard
     renderGame()
 }
 
